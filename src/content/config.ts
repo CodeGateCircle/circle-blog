@@ -1,5 +1,14 @@
 import { defineCollection, z } from "astro:content";
 
+const membersCollection = defineCollection({
+	schema: z.object({
+		name: z.string(),
+		participated: z.date(),
+		introduce: z.string().optional().default(""),
+		draft: z.boolean().optional().default(false),
+	}),
+});
+
 const postsCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
@@ -11,7 +20,7 @@ const postsCollection = defineCollection({
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
 		lang: z.string().optional().default(""),
-
+		member: z.string().optional().nullable().default(""),
 		/* For internal use */
 		prevTitle: z.string().default(""),
 		prevSlug: z.string().default(""),
@@ -21,4 +30,5 @@ const postsCollection = defineCollection({
 });
 export const collections = {
 	posts: postsCollection,
+	members: membersCollection,
 };
