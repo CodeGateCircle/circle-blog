@@ -44,7 +44,7 @@ const { remarkPluginFrontmatter } = await member.render();
 // 	// TODO include cover image here
 // };
 ---
-<MainGridLayout banner={member.data.image} title={member.data.name} lang={member.data.lang} setOGTypeArticle={true} headings={headings}>
+<MainGridLayout banner={member.data.avatar} title={member.data.name} lang={member.data.lang} setOGTypeArticle={true} headings={headings}>
     <!-- <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script> -->
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",
@@ -84,13 +84,13 @@ const { remarkPluginFrontmatter } = await member.render();
 
             <!-- metadata -->
             <div class="onload-animation">
-                {!member.data.image && <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>}
+                {!member.data.avatar && <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>}
             </div>
 
             <!-- always show cover as long as it has one -->
 
-            {member.data.image &&
-                <ImageWrapper id="post-cover" src={member.data.image} basePath={path.join("content/members/", getDir(member.id))} class="mb-8 rounded-xl banner-container onload-animation"/>
+            {member.data.avatar &&
+                <ImageWrapper id="post-cover" src={member.data.avatar} basePath={path.join("content/members/", getDir(member.id))} class="mb-8 rounded-xl banner-container onload-animation"/>
             }
 
 

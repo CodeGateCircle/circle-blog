@@ -91,3 +91,8 @@ export type BlogPostData = {
 export type ExpressiveCodeConfig = {
 	theme: string;
 };
+
+export type SnsIcon = {
+	name: string;
+	icon: string;
+};

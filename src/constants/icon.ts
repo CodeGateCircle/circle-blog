@@ -1,4 +1,4 @@
-import type { Favicon } from "@/types/config.ts";
+import type { Favicon, SnsIcon } from "@/types/config.ts";
 
 export const defaultFavicons: Favicon[] = [
 	{
@@ -40,5 +40,16 @@ export const defaultFavicons: Favicon[] = [
 		src: "/favicon/favicon-dark-192.png",
 		theme: "dark",
 		sizes: "192x192",
+	},
+];
+
+export const defaultSnsIcons: SnsIcon[] = [
+	{
+		name: "twitter",
+		icon: "fa6-brands:twitter",
+	},
+	{
+		name: "github",
+		icon: "fa6-brands:github",
 	},
 ];
