@@ -3,6 +3,8 @@ import { defineCollection, z } from "astro:content";
 const membersCollection = defineCollection({
 	schema: z.object({
 		name: z.string(),
+		image: z.string().optional().default(""),
+		lang: z.string().optional().default("ja"),
 		participated: z.date(),
 		introduce: z.string().optional().default(""),
 		draft: z.boolean().optional().default(false),
@@ -20,7 +22,7 @@ const postsCollection = defineCollection({
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
 		lang: z.string().optional().default(""),
-		member: z.string().optional().nullable().default(""),
+		member: z.string().optional().default(""),
 		/* For internal use */
 		prevTitle: z.string().default(""),
 		prevSlug: z.string().default(""),

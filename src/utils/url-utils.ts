@@ -33,7 +33,7 @@ export function getCategoryUrl(category: string | null): string {
 
 export function getMemberUrl(member: string): string {
 	if (!member) return url("/members/");
-	return url(`/members/${encodeURIComponent(member.toLowerCase().trim())}`);
+	return url(`/members/${encodeURIComponent(member.toLowerCase().trim())}/`);
 }
 
 export function getDir(path: string): string {
