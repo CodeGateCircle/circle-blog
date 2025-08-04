@@ -1,0 +1,26 @@
+---
+import ImageWrapper from "@components/misc/ImageWrapper.astro";
+import profiles from "../../profiles.json";
+
+interface Props {
+	member: string;
+	class: string;
+}
+
+const className = Astro.props.class;
+const { member } = Astro.props;
+
+const profile = profiles.find((p) => p.name === member);
+---
+
+<div class={`relative transition overflow-hidden bg-[var(--license-block-bg)] py-5 px-6 ${className}`}>
+    {profile && (
+        <>
+            <div class="flex items-center mb-2">
+                <ImageWrapper src={profile.avatar} alt={profile.name} class="transition w-10 h-10 rounded-full mr-2" />
+                <div class="transition text-sm font-semibold">{profile.name}</div>
+            </div>
+            <div class="transition text-sm text-black/70 dark:text-white/70">{profile.introduce}</div>
+        </>
+    )}
+</div>

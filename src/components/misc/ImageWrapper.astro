@@ -11,9 +11,11 @@ interface Props {
 }
 
 import { Image } from "astro:assets";
+import { existsSync } from "node:fs";
 import { url } from "../../utils/url-utils";
 
 const { id, src, alt, position = "center", basePath = "/" } = Astro.props;
+// console.log("ImageWrapper", { id, src, alt, position, basePath });
 const className = Astro.props.class;
 
 const isLocal = !(
@@ -32,16 +34,27 @@ if (isLocal) {
 	const files = import.meta.glob<ImageMetadata>("../../**", {
 		import: "default",
 	});
+
 	let normalizedPath = path
 		.normalize(path.join("../../", basePath, src))
 		.replace(/\\/g, "/");
+
+	// console.log("Normalized Path", normalizedPath);
+
 	const file = files[normalizedPath];
 	if (!file) {
 		console.error(
 			`\n[ERROR] Image file not found: ${normalizedPath.replace("../../", "src/")}`,
 		);
+		img = null;
+	} else {
+		try {
+			img = await file();
+		} catch (error) {
+			console.error(`\n[ERROR] Failed to load image: ${normalizedPath}`, error);
+			img = null;
+		}
 	}
-	img = await file();
 }
 
 const imageClass = "w-full h-full object-cover";
