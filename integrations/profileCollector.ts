@@ -5,7 +5,7 @@ export default function profileCollector(): AstroIntegration {
 	return {
 		name: "profile-collector",
 		hooks: {
-			"astro:build:done": async () => {
+			"astro:config:done": async () => {
 				// プロフィール収集ロジックをここに実装
 				console.log("Collecting profiles...");
 				await collectProfiles();

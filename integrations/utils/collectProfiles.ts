@@ -11,6 +11,7 @@ interface ProfileData {
 	name: string;
 	avatar: string;
 	introduce: string;
+	url: string;
 	links: SnsData[] | null;
 }
 
@@ -29,11 +30,14 @@ export async function collectProfiles() {
 		const frontmatter = matter(content);
 		const { name, avatar, introduce, links } = frontmatter.data;
 
+		const url = `/members/${encodeURIComponent(name.toLowerCase().trim())}/`;
+
 		profiles.push({
 			name,
-			avatar,
+			avatar: avatar || "",
 			introduce,
-			links: links || null,
+			url,
+			links: links || [],
 		});
 	}
 
