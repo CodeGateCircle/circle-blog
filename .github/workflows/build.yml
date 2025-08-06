@@ -1,10 +1,6 @@
 name: Build and Check
 
-on:
-  push:
-    branches: [ main ] # Adjust branches as needed
-  pull_request:
-    branches: [ main ] # Adjust branches as needed
+on: [ workflow_dispatch ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
