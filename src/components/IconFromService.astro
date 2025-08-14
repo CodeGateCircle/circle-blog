@@ -1,0 +1,10 @@
+---
+import { defaultSnsIcons } from "@constants/icon";
+import { Icon } from "astro-icon/components";
+
+const { service } = Astro.props;
+const className = Astro.props.class;
+const icon = defaultSnsIcons.find((icon) => icon.name === service)?.icon;
+---
+
+<Icon name={icon} class={className}></Icon>
