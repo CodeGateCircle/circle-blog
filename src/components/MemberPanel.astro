@@ -1,3 +1,12 @@
-<div class="card-base px-8 py-6">
-    
+---
+import type { CollectionEntry } from "astro:content";
+import MemberCard from "./MemberCard.astro";
+
+const { members } = Astro.props;
+---
+
+<div class="card-base px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    {members.map((member: CollectionEntry<"members">) => (
+        <MemberCard member={member}></MemberCard>
+    ))}
 </div>

@@ -1,8 +1,8 @@
 ---
+import MemberPanel from "@components/MemberPanel.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import MemberPanel from "@components/MemberPanel.astro";
 import { getMemberList } from "@utils/member-utils";
 
 const members = await getMemberList();
