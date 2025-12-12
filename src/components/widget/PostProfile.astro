@@ -18,9 +18,11 @@ const profile = profiles.find((p) => p.name === member);
         <>
             <div class="flex items-center mb-2">
                 <ImageWrapper src={profile.avatar} alt={profile.name} class="transition w-10 h-10 rounded-full mr-2" />
-                <div class="transition text-sm font-semibold">{profile.name}</div>
+                <div class="flex flex-col">
+                    <div class="transition text-sm font-semibold dark:text-white">{profile.name}</div>
+                    <div class="transition text-sm text-black/70 dark:text-white/70">{profile.introduce}</div>
+                </div>
             </div>
-            <div class="transition text-sm text-black/70 dark:text-white/70">{profile.introduce}</div>
         </>
     )}
 </div>
