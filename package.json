@@ -39,7 +39,7 @@
     "@iconify/svelte": "^4.2.0",
     "@swup/astro": "^1.7.0",
     "@tailwindcss/typography": "^0.5.19",
-    "astro": "5.12.9",
+    "astro": "5.16.5",
     "astro-expressive-code": "^0.41.4",
     "astro-icon": "^1.1.5",
     "gray-matter": "^4.0.3",
@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.6",
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.3.8",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/hast": "^3.0.4",
     "@types/markdown-it": "^14.1.2",
